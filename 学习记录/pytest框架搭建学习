@@ -67,3 +67,7 @@
     先配置yaml文件参数
     在utils工具文件夹中配置读取方法read_data.py读取文件信息
     在需要参数化的文件夹中进行引用，见test_prarmetrize_yaml.py
+
+
+8、生成模块版本文件
+    pip freeze > requirements.txt
