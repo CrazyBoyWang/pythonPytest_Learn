@@ -1,0 +1,2 @@
+INFO     log:test_mobile.py:16 开始执行测试
+INFO     log:test_mobile.py:35 执行结束

@@ -1,0 +1,42 @@
+student:
+  std1: aa
+  std2: bb
+
+student_json: {std1: aa, std2: bb}
+
+
+heroes_name:
+  - 爱丁堡
+  - 大蛇丸
+  - 祭祀
+
+heros:
+  - name: 搜女
+    word: 第三方
+
+heros_name_list:
+  -
+    - 爱丁堡
+    - 大蛇丸
+    - 祭祀
+
+
+
+heroes_name_word:
+  - - 爱丁堡
+    - 测试
+  - - 大蛇丸
+    - 你猜我说啥
+  - - 李四
+    - 不要在古代
+
+mobile_belong:  {'shouji': 13321170726, "appkey": "Oc818521d38759e1"}
+
+mobile_belong_method2:
+  - - 13321170726
+    - Oc818521d38759e1
+
+mobile_belong_method3:
+  - [13321170726,Oc818521d38759e1]
+  - [13321170727,Oc818521d38759e1]
+  - [13321170728,Oc818521d38759e1]

@@ -1,0 +1,69 @@
+1、虚拟机安装Jenkins方法
+	https://www.cnblogs.com/Mxy-cnblog/p/16501464.html
+	注意外联防火墙端口号报错。根据端口号报错调整对应的安全策略
+
+
+2、安装pytest->可以通过pycharm界面中python packages中查找并安装即可
+    pytest执行定义必须是test_开头
+    需要执行的文件夹也需要用test_作为开头
+	def test_one():
+        expect = 1
+        actual = 1
+        assert expect == actual
+    运行可以通过终端机命令pytest 文件.py执行
+
+3、配置pytest配置文件，pytest.ini
+    testpaths:指定执行用例位置
+    markers：设置标签，通过用例方法前注释方式@pytest.mark.test
+
+4、用例执行前后置方法
+    常见方法见前后置操作.png
+    范例见test_mobile.py
+    测试方法
+    1、pytest.main() 运行模式时，main()不添加任何参数，表示运行当前目录下的所有的测试文件；
+    2、main()添加参数如下:
+       pytest.main(['-s', '-v', '-q', '-x','-k "print"'])
+       -s   对于代码里print语句会将输出至控制台
+       -v   用于增加测试用例的冗长
+       -q   用于减少测试用例的执行结果的冗长
+       -x   出现一条用例执行失败就退出测试，调试阶段常用
+       -k "print"  运行包含某个字符串的用例，如pytest -k add XX.py 表示运行XX.py中包含add的测试用例
+       等等
+
+    3、执行测试用例的过滤
+    执行某个测试类或测试方法用 :: 隔开，常用-vs参数
+    pytest.main(["-vs","模块.py::类或方法"])   命令行为：pytest 文件名.py::测试方法
+    pytest.main(["-vs","模块.py::类::方法"])   命令行为：pytest 文件名.py::测试类::测试方法
+
+    如果是在main目录入口执行测试用例文件：
+    import pytest
+    if __name__ == '__main__':
+        pytest.main(["-vs","--html=../../report_hdc/20211011_hdc_02.html","--self-contained-html"])
+
+    4、如果使用pytest.main()生效，再pycharm中必须设置Tools>Python Integrated Tools>Default test runner=Unittests；如果设置为pytest则是无效的。
+
+    5、在pytest中，测试函数可能返回多种结果，不只是通过或失败。如下：
+    PASSED（.）：测试通过
+    FAILED（F）：测试失败
+    SKIPED（s）：测试未被执行，指定测试跳过执行
+    xfail （x）：预期测试失败，并且确实失败
+    XPASS （X）：预期测试失败，但实际上运行通过，不符合预期
+    ERROR （E）：测试用例之外的代码触发的异常
+
+    6、pytest.main(["-m", "run_first"])
+    使用-m 对用例进行标记，用例需注释@pytest.mark.xxx,将xxx作为参数传入
+    使用-m "mark1 and mark2"可以同时选中带有这两个标记的所有测试用例。
+    使用-m "mark1 and not mark2"选中带有与mark1的测试用例，而过滤掉带有mark2的测试用例
+    使用-m "mark1 or mark2"则选中带有mark1或者mark2的所有测试用例
+
+5、YML使用方法
+    见test_skip.py
+
+6、参数化
+    见test_parametrize
+
+
+7、yaml与parametrize组合配置方法
+    先配置yaml文件参数
+    在utils工具文件夹中配置读取方法read_data.py读取文件信息
+    在需要参数化的文件夹中进行引用，见test_prarmetrize_yaml.py

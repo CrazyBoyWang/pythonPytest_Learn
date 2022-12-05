@@ -1,0 +1,4 @@
+准备测试数据
+{'status': 0, 'msg': 'ok', 'result': {'shouji': '13321170726', 'province': '北京', 'city': '北京', 'company': '中国移动', 'areacode': '0571'}}
+200
+清理测试数据
