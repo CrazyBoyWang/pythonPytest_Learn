@@ -22,7 +22,7 @@ class Logger:
             '[%(asctime)s][%(filename)s %(lineno)d][%(levelname)s]: %(message)s]'
         )
         # 创建日志处理器，用来存放日志文件
-        self.fileLogger = logging.FileHandler(self.logName, mode='a', encoding='UTF-8', delay=False, errors=None)
+        self.fileLogger = logging.FileHandler(self.logName, mode='a', encoding='GBK', delay=False, errors=None)
         # 设置日志存放级别
         self.fileLogger.setLevel(level)
         # 设置存放日志格式
